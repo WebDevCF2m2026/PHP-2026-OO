@@ -3,6 +3,33 @@
 require_once "Chanson.php";
 require_once "Playlist.php";
 
+/* impossible car private ou protected
+$chanson1 = new Chanson();
+$chanson1->titre = "qq chose";
+
+echo $chanson1->titre;
+
+var_dump($chanson1);
+*/
+
+// affichage d'une constante de classe
+echo "Constant de classe Chanson::GENRE : ". Chanson::GENRE."<br>";
+
+// création d'une instance de Chanson
+$morceau = new Chanson('Thriller','Michael Jackson',202);
+
+// ne fonctionne pas car private ou protected
+// echo $morceau->titre;
+
+// utilisation des getters, on utilise la concaténation OO "{$obj->methode()}"
+
+echo "{$morceau->getTitre()} — {$morceau->getArtiste()} ({$morceau->getDuree()} secondes) <br>";
+
+/*
+// plus possible car le constucteur veut 3 arguments
+$chanson1 = new Chanson();
+*/
+
 // Enoncé
 
 ?>
@@ -25,6 +52,9 @@ $playlist = new Playlist();
 $playlist->ajouter(new Chanson('Bohemian Rhapsody', 'Queen', 355));
 $playlist->ajouter(new Chanson('Get Lucky', 'Daft Punk', 248));
 $playlist->ajouter(new Chanson('Redbone', 'Childish Gambino', 327));
+
+// on voit que ajouter() fonctionne
+var_dump($playlist);
 
 $playlist->afficher();
 echo 'Durée totale : ' . $playlist->formaterDuree($playlist->dureeTotale()) . PHP_EOL;
