@@ -58,3 +58,10 @@ var_dump($playlist);
 
 $playlist->afficher();
 echo 'Durée totale : ' . $playlist->formaterDuree($playlist->dureeTotale()) . PHP_EOL;
+
+?><h2>Résultat attendu :</h2>
+<p>Bohemian Rhapsody — Queen (05:55)<br>
+Get Lucky — Daft Punk (04:08)<br>
+Redbone — Childish Gambino (05:27)<br>
+Durée totale : 15:30
+</p>
