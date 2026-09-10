@@ -25,13 +25,24 @@ class Chanson{
         $this->artiste = $artist;
         $this->duree = $time;
 
+        // pour récupérer des propriétées privées, on doit créer
+        // des getters
+        }
         public function getTitre():string
         {
             return $this->titre;
         }
-        public function getTitre():string
+
+        public function getDuree():string
         {
-            
+            return $this->duree
         }
-    }
+
+        public functtion getArtiste():string
+        {
+            return $this->artiste;
+        }
+
+        
+    
 }
