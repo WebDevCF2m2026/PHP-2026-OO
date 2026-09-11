@@ -29,9 +29,31 @@ class MyFirstClass{
             // self::class représente le nom de la class, donc de la fabrique
             echo "on a crée une instance de ".self::class;
         }
+
+        // méthode publique
+        public function methodePublique(): string
+        {
+            // on peut l'utiliser pour afficher ou modifier 
+            // les propriétés
+
+            // modification des propriétés (set)
+            $this->name ="Pitz";
+            $this->surName = "Michaël";
+            $this->identifiant = mt_rand(1000000, 9999999);
+
+            // affichage de celles-ci (get)
+            return $this->name." ".$this->surName. " a comme identifiant ".$this->identifiant. " et commence à avoir faim";
+
+        }
 }
 
 // instanciation de $first
 $first = new MyFirstClass();
+echo "<hr>";
+// appel d'une constante de classe
+// echo $first::IS_ALIVE; // partir de l'instance n'est recommendé
+echo MyFirstClass::IS_ALIVE;
+echo "<hr>";
+echo $first->methodePublique();
 echo "<hr>";
 var_dump($first);

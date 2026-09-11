@@ -307,7 +307,7 @@ Il est important de noter que la déclaration d'une classe en PHP ne crée pas d
 $objet = new MaClasse();
 ```
 
-Dans cet exemple, nous avons instancié la classe `MaClasse`. L'objet est stocké en mémoire et la variable `$objet` est une étiquette pointant vers celui-ci.
+Dans cet exemple, nous avons instancié la classe `MaClasse`. L'objet est stocké en mémoire et la variable `$objet` est une étiquette pointant vers celui-ci (principe du lien symbolique en UNIX).
 
 Conséquence importante : quand on copie la variable, on ne copie **pas** l'objet, seulement l'étiquette !
 
