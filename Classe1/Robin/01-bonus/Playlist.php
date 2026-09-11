@@ -11,12 +11,12 @@ class Playlist
     }
 
     
-    // afficher ()
+    // afficher
 
     public function afficher(): void {
         foreach ($this->chansons as $i){
             {
-            echo "{$i->titre} — {$i->artiste} ({$this->formaterDuree($i->duree)})<br>";
+            echo "{$i->titre} - {$i->artiste} ({$this->formaterDuree($i->duree)})<br>";
         }
     }; 
    }
