@@ -4,6 +4,7 @@ require_once "tamagotchi.php";
 
 
 $pixel = new Tamagotchi('Pixel');
+
 // echo $pixel->etat() . PHP_EOL;
 
 // $pixel->manger();
