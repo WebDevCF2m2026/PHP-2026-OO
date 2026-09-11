@@ -33,6 +33,19 @@ echo "Getter de age : {$mon_premier_chaton->getAge()}<br>";
 $mon_premier_chaton->setAge(i: 38);
 echo "Getter de age : {$mon_premier_chaton->getAge()}<br>";
 
+echo "<p>Propiété des paramètres dans le constructeur a ce défaut :";
+
+$mon_deuxieme_chaton = new MonChaton(
+    nom: "
+        <br>
+        je fais ce que je veux <script>alert('hum');</script>
+
+    ",
+    age: -377
+);
+
+echo "Mon nom :". $mon_deuxieme_chaton->nom." est j'ai ".$mon_deuxieme_chaton->getAge()."</p>";
+
 // attention, copie ne clône pas l'instance, il rajoute un lien vers le même objet
 $copie = $mon_premier_chaton;
 
@@ -41,4 +54,5 @@ $copie = $mon_premier_chaton;
 var_dump(
     $mon_premier_chaton,
     //$copie,
+    $mon_deuxieme_chaton
     );
