@@ -3,6 +3,7 @@
 require_once "Chanson.php";
 require_once "Playlist.php";
 
+
 // affichage de la constante de classe 
 echo "Constante de classe Chanson::GENRE: " . Chanson::GENRE."<br>";
 
@@ -40,4 +41,9 @@ $playlist->ajouter(new Chanson('Redbone', 'Childish Gambino', 327));
 var_dump($playlist);
 
 $playlist->afficher();
-echo 'Durée totale : ' . $playlist->formaterDuree($playlist->dureeTotale()) . PHP_EOL;
+echo 'Durée totale : ' . $playlist->formaterDuree($playlist->dureeTotale()) . PHP_EOL . '<br>';
+
+// 1.1 PREMIERE CLASSE 
+
+
+require_once "chat.php";
