@@ -26,7 +26,8 @@ class Chanson{
         $this->duree = $time;
 
         // pour récupérer des propriétées privées, on doit créer
-        // des getters
+        // des getters qui récupèrent les propriétés de l'instance 
+        // == objet avec les mots
         }
         public function getTitre():string
         {
