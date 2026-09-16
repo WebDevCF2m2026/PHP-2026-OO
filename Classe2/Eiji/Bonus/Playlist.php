@@ -1,11 +1,35 @@
 <?php
-class Playlist{
-    // PROPRIÉTÉS
-    public array $chansons = []; // tableau qui va contenir des chansons
-
-    public function ajouter(Chanson $chanson): void // void = pas de return
+ 
+class Playlist
+{
+    private array $chansons = [];
+    public function __construct()
     {
-        // on ajoute les chnasons (type Chanson) au tableau
-        $this->chansons[] = $chanson;
+        $this->chansons = [];
+    }
+    public function ajouter(Chanson $chanson):void{
+        array_push($this->chansons, $chanson);
+    }
+    public function afficher(): void{
+        foreach ($this->chansons as $chanson) {
+            echo $chanson->getTitre() . ' — ' . $chanson->getArtiste() . ' (' . $this->formaterDuree($chanson->getDuree()) . ')' . '<br>';
+        }
+    }
+ 
+    public function formaterDuree(int $duree): string{
+        $minutes = intdiv($duree, 60);
+        $secondes = $duree % 60;
+ 
+        return $minutes . ':' . sprintf('%02d', $secondes);
+    }
+    public function dureeTotale(): int{
+        $durreTotal = 0;
+        foreach ($this->chansons as $chanson) {
+            $durreTotal += $chanson->getDuree();
+        }
+ 
+        return $durreTotal;
     }
 }
+ 
+ 

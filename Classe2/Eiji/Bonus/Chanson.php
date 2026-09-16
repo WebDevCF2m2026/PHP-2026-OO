@@ -35,10 +35,10 @@ class Chanson{
 
         public function getDuree():string
         {
-            return $this->duree
+            return $this->duree;
         }
 
-        public functtion getArtiste():string
+        public function getArtiste():string
         {
             return $this->artiste;
         }

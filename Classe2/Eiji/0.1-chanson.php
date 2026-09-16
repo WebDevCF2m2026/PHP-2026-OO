@@ -3,7 +3,7 @@
 // ── Version 1 : avec un tableau (ce que vous savez déjà faire)
 $chanson = ['titre' => 'PHP Anthem', 'artiste' => 'The Coders'];
 
-echo "$chanson->titre - $chanson->artiste <br>" ;
+// echo "$chanson->titre - $chanson->artiste <br>" ;
 
 
 // ── Version 2 : avec un objet (la nouveauté)
