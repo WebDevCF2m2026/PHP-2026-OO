@@ -13,18 +13,19 @@ class Playlist
     public function afficher(): void
     {
         foreach ($this->chansons as $chanson) {
-            echo $chanson->getTitre() . ' - ' . $chanson->getArtiste();
+            echo $chanson->getTitre() . ' - ' . $chanson->getArtiste(). "({$chanson->getDuree()} seconde) <br>";
             echo ' (' . $this->formaterDuree($chanson->getDuree()) . ') <br>';
         }
     }
 
     public function dureeTotale(): int
     {
-        $total = 0;
+        $this->compteSecondes += $duree;
+        // $total = 0;
 
-        foreach ($this->chansons as $chanson) {
-            $total = $total + $chanson->getDuree();
-        }
+        // foreach ($this->chansons as $chanson) {
+        //     $total = $total + $chanson->getDuree();
+        // }
 
         return $total;
     }

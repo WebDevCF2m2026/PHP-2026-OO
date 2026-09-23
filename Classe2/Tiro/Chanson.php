@@ -13,6 +13,7 @@ class Chanson{
     private int $duree = 0;
 
     // constante 
+    
     public const string GENRE = 'Musique';
 
 
@@ -26,6 +27,7 @@ class Chanson{
             $this->artiste = $artist;
             $this->duree = $time;
         }
+
 
         public function getTitre(): string 
         {
