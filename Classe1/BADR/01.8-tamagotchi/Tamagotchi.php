@@ -22,6 +22,6 @@ class Tamagotchi {
 
     // Affiche l'état actuel du Tamagotchi
     public function etat(): string {
-        return " {$this->nom} a une faim de {$this->faim}/100";
+        return "🐣 {$this->nom} a une faim de {$this->faim}/100";
     }
 }

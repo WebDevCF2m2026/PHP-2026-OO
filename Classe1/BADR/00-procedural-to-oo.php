@@ -1,3 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Du procédural à l'objet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+    <a class="retour" href="index.php">← Retour au site</a>
+    <span class="badge">Chapitre 0</span>
+    <h1>Du procédural à l'objet</h1>
+    <p class="sous-titre">Le même utilisateur, d'abord avec un tableau, puis avec une classe User.</p>
+
+    <div class="carte">
+        <h2>Résultat</h2>
+        <div class="resultat">
 <?php
 /*
 
@@ -60,3 +78,9 @@ $user->afficher();
 echo "<br>";
 
 $user2->afficher();
+?>
+        </div>
+    </div>
+</main>
+</body>
+</html>

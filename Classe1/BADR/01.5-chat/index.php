@@ -1,52 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Mon Chaton</title>
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #1f1c2c, #928dab);
-            color: #f4f4f4;
-        }
-        .card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 16px;
-            padding: 40px 50px;
-            max-width: 600px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-        }
-        .card h3 {
-            margin-top: 25px;
-            color: #ffd369;
-        }
-        .card pre {
-            background: rgba(0, 0, 0, 0.35);
-            padding: 15px;
-            border-radius: 10px;
-            overflow-x: auto;
-            text-align: left;
-            font-size: 0.85em;
-        }
-        .emoji {
-            font-size: 2em;
-        }
-    </style>
-</head>
-<body>
-<div class="card">
-    <div class="emoji"></div>
 <?php
 require_once 'MonChaton.php';
 
-// Création de deux instances de MonChaton
+// Création de deux instances de MonChaton (arguments nommés)
 $chaton1 = new MonChaton(
     nom: "michmich",
     couleur: "blanc",
@@ -57,23 +12,52 @@ $chaton2 = new MonChaton(
     couleur: "noir",
     age: 3
 );
-$copie = $mon_premier_chaton = $chaton1; // Copie de l'objet $chaton1 dans $mon_premier_chaton
-// Affichage du message de chaque chaton
-echo $mon_premier_chaton->sePresenter();
-
-//modification de lage a 8ans
-$mon_premier_chaton->setAge(i:8);
-
-echo "<br>";//impossible dafficher age directement car cest un attribut privé donc on utilise le getter pour recuperer la valeur de l'attribut age
-echo "<h3>Accéder aux attributs privés via les getters :</h3><br>";
-echo "getter de age : {$mon_premier_chaton->getAge()}<br>";
-
-echo "getter de couleur : {$mon_premier_chaton->getCouleur()}<br>";
-
-echo "<pre>";
-var_dump($chaton1);
-echo "</pre>";
+$mon_premier_chaton = $chaton1; // même objet, pas une copie
 ?>
-</div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getters et setters</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+    <a class="retour" href="../index.php">← Retour au site</a>
+    <span class="badge">Exercice 1.5 → 1.7</span>
+    <h1>🔒 Getters et setters</h1>
+    <p class="sous-titre">Des propriétés privées, lues avec des getters et modifiées avec un setter qui vérifie.</p>
+
+    <div class="carte">
+        <h2>Présentation</h2>
+        <div class="resultat">
+            <?= $mon_premier_chaton->sePresenter() ?>
+        </div>
+    </div>
+
+    <div class="carte">
+        <h2>Accéder aux attributs privés via les getters</h2>
+        <div class="resultat">
+            <?php
+            // modification de l'âge à 8 mois
+            $mon_premier_chaton->setAge(i: 8);
+            // impossible d'afficher age directement car c'est un attribut privé
+            // donc on utilise le getter pour récupérer la valeur
+            echo "getter de age : {$mon_premier_chaton->getAge()}<br>";
+            echo "getter de couleur : {$mon_premier_chaton->getCouleur()}<br>";
+            // le setter refuse un âge négatif
+            $mon_premier_chaton->setAge(i: -2);
+            ?>
+        </div>
+    </div>
+
+    <div class="carte">
+        <h2>var_dump de l'objet</h2>
+        <div class="resultat">
+            <pre><?php var_dump($chaton1); ?></pre>
+        </div>
+    </div>
+</main>
 </body>
 </html>

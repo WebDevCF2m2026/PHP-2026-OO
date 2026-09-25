@@ -1,3 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Première classe : Chanson</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+    <a class="retour" href="index.php">← Retour au site</a>
+    <span class="badge">Chapitre 1</span>
+    <h1>Première classe : Chanson</h1>
+    <p class="sous-titre">Un tableau associatif comparé à un objet avec des propriétés publiques.</p>
+
+    <div class="carte">
+        <h2>Résultat</h2>
+        <div class="resultat">
 <?php
 // procédural
 
@@ -34,3 +52,9 @@ $chanson3->duree = 240;
 // affichage de ses propriétés publiques
 echo $chanson2->titre . ' — ' . $chanson2->artiste . ' ('.$chanson2->duree.' secondes)'. '<br>';
 echo $chanson3->titre . ' — ' . $chanson3->artiste . ' ('.$chanson3->duree.' secondes)'.'<br>';
+?>
+        </div>
+    </div>
+</main>
+</body>
+</html>

@@ -1,39 +1,38 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Mon Tamagotchi</title>
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #1f1c2c, #928dab);
-            color: #f4f4f4;
-        }
-     
-    </style>
-</head>
-<body>
-<div class="card">
-    <div class="emoji"></div>
 <?php
 require_once 'Tamagotchi.php';
 
 // Création du Tamagotchi
 $pixel = new Tamagotchi('Pixel');
-
-echo "<p>{$pixel->etat()}</p>";
-
-$pixel->manger();
-echo "<p>{$pixel->etat()}</p>";
-
-$pixel->jouer();
-echo "<p>{$pixel->etat()}</p>";
 ?>
-</div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mini-Tamagotchi</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<main>
+    <a class="retour" href="../index.php">← Retour au site</a>
+    <span class="badge">Exercice 1.8</span>
+    <h1>🐣 Le mini-Tamagotchi</h1>
+    <p class="sous-titre">Une faim privée qui ne change qu'à travers manger() et jouer().</p>
+
+    <div class="carte">
+        <h2>Résultat</h2>
+        <div class="resultat">
+            <?php
+            echo $pixel->etat() . '<br>';
+
+            $pixel->manger();
+            echo $pixel->etat() . '<br>';
+
+            $pixel->jouer();
+            echo $pixel->etat() . '<br>';
+            ?>
+        </div>
+    </div>
+</main>
 </body>
 </html>

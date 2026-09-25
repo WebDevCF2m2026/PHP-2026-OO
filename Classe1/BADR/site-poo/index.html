@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>L'orienté objet en PHP</title>
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<nav>
+    <div class="conteneur">
+        <a class="logo" href="#">BADR<span>::POO</span></a>
+        <ul>
+            <li><a href="#fabrique">La fabrique</a></li>
+            <li><a href="#notions">Les notions</a></li>
+            <li><a href="#exercices">Mes exercices</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="conteneur">
+        <span class="etiquette">PHP 8 · Programmation orientée objet</span>
+        <h1>C'est quoi <br><span class="degrade">l'orienté objet</span> ?</h1>
+        <p>
+            Au lieu d'avoir des variables et des fonctions éparpillées, on regroupe
+            les <b>données</b> et les <b>actions</b> d'une même chose dans un seul bloc :
+            un <b>objet</b>. Un chat a un nom et un âge, et il sait miauler.
+        </p>
+        <div class="boutons">
+            <a class="bouton plein" href="#exercices">Voir mes exercices</a>
+            <a class="bouton vide" href="#fabrique">Essayer la fabrique</a>
+        </div>
+    </div>
+</header>
+
+<!-- ============ Démo : classe = moule, objet = ce qui sort du moule ============ -->
+<section id="fabrique" class="alt">
+    <div class="conteneur">
+        <h2>🏭 Une classe, c'est un moule</h2>
+        <p class="intro">
+            La <b>classe</b> décrit à quoi ressemble un chat. Chaque <code>new</code>
+            fabrique un <b>objet</b> (une instance) à partir de ce moule, avec ses propres valeurs.
+            Clique sur le bouton pour fabriquer des chats.
+        </p>
+
+        <div class="fabrique">
+            <div class="moule">
+                <h3>La classe (le moule)</h3>
+<pre><span class="mot">class</span> <span class="nom">Chat</span>
+{
+    <span class="mot">public function</span> __construct(
+        <span class="mot">private string</span> <span class="var">$nom</span>,
+        <span class="mot">private int</span> <span class="var">$age</span>,
+    ) {}
+
+    <span class="mot">public function</span> miauler(): <span class="mot">string</span>
+    {
+        <span class="mot">return</span> <span class="txt">"Miaou, je suis </span><span class="var">{$this->nom}</span><span class="txt"> !"</span>;
+    }
+}</pre>
+                <button id="bouton-new" type="button">new Chat(...)</button>
+            </div>
+
+            <div class="objets">
+                <h3>Les objets fabriqués</h3>
+                <p class="vide" id="aucun">Aucun chat pour l'instant…</p>
+                <div class="liste-objets" id="liste-objets"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ Les notions ============ -->
+<section id="notions">
+    <div class="conteneur">
+        <h2>🧠 Les notions à connaître</h2>
+        <p class="intro">Tout ce qu'on a vu en classe, résumé en une carte par notion.</p>
+
+        <div class="notions">
+            <article class="notion">
+                <h3><span class="icone">📦</span> Propriétés et méthodes</h3>
+                <p>Les propriétés sont les <b>données</b> de l'objet, les méthodes sont ses <b>actions</b>.</p>
+<pre><span class="var">$chat</span>-><span class="var">nom</span>;        <span class="com">// propriété</span>
+<span class="var">$chat</span>->miauler();  <span class="com">// méthode</span></pre>
+            </article>
+
+            <article class="notion">
+                <h3><span class="icone">🪞</span> $this</h3>
+                <p>À l'intérieur de la classe, <code>$this</code> veut dire « l'objet sur lequel on travaille ».</p>
+<pre><span class="mot">return</span> <span class="var">$this</span>-><span class="var">nom</span>;</pre>
+            </article>
+
+            <article class="notion">
+                <h3><span class="icone">🏗️</span> Le constructeur</h3>
+                <p>Appelé automatiquement au <code>new</code>. Il remplit l'objet dès sa création.</p>
+<pre><span class="var">$felix</span> = <span class="mot">new</span> <span class="nom">Chat</span>(<span class="txt">'Félix'</span>, 3);</pre>
+            </article>
+
+            <article class="notion">
+                <h3><span class="icone">🔒</span> L'encapsulation</h3>
+                <p><code>private</code> cache une propriété. On la lit avec un <b>getter</b> et on la modifie avec un <b>setter</b> qui vérifie la valeur.</p>
+<pre><span class="mot">public function</span> setAge(<span class="mot">int</span> <span class="var">$a</span>): <span class="mot">void</span> {
+    <span class="mot">if</span> (<span class="var">$a</span> >= 0) <span class="var">$this</span>-><span class="var">age</span> = <span class="var">$a</span>;
+}</pre>
+            </article>
+
+            <article class="notion">
+                <h3><span class="icone">👨‍👦</span> L'héritage</h3>
+                <p>Avec <code>extends</code>, un enfant récupère tout le code du parent. Un Chien <b>est un</b> Animal.</p>
+<pre><span class="mot">class</span> <span class="nom">Chien</span> <span class="mot">extends</span> <span class="nom">Animal</span> {}</pre>
+            </article>
+
+            <article class="notion">
+                <h3><span class="icone">☝️</span> parent::</h3>
+                <p>Un enfant peut réécrire une méthode, et quand même appeler la version du parent.</p>
+<pre><span class="mot">return parent</span>::manger() . <span class="txt">' Puis toilette.'</span>;</pre>
+            </article>
+
+            <article class="notion">
+                <h3><span class="icone">🚫</span> abstract</h3>
+                <p>Une classe abstraite ne peut pas être instanciée. Une méthode abstraite <b>doit</b> être écrite par chaque enfant.</p>
+<pre><span class="mot">abstract public function</span> crier(): <span class="mot">string</span>;</pre>
+            </article>
+
+            <article class="notion">
+                <h3><span class="icone">🔁</span> Le polymorphisme</h3>
+                <p>Une seule boucle, et chaque objet réagit à sa façon, sans aucun <code>if</code>.</p>
+<pre><span class="mot">foreach</span> (<span class="var">$animaux</span> <span class="mot">as</span> <span class="var">$a</span>) {
+    <span class="mot">echo</span> <span class="var">$a</span>->crier();
+}</pre>
+            </article>
+
+            <article class="notion">
+                <h3><span class="icone">🎲</span> static et __toString</h3>
+                <p>Une méthode <code>static</code> s'appelle sur la classe. <code>__toString()</code> permet de faire <code>echo $objet</code>.</p>
+<pre><span class="var">$d20</span> = <span class="nom">De</span>::deDonjon();
+<span class="mot">echo</span> <span class="var">$d20</span>;</pre>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ============ Les exercices ============ -->
+<section id="exercices" class="alt">
+    <div class="conteneur">
+        <h2>🚀 Mes exercices</h2>
+        <p class="intro">Chaque carte ouvre l'exercice, qui tourne en direct avec PHP.</p>
+
+        <p class="chapitre">Chapitre 0 · Du procédural à l'objet</p>
+        <div class="exos">
+            <a class="exo" href="../00-procedural-to-oo.php">
+                <span class="num">00</span>
+                <strong>Tableau vs objet</strong>
+                <small>Le même utilisateur, écrit de deux façons</small>
+            </a>
+        </div>
+
+        <p class="chapitre">Chapitre 1 · Classes et objets</p>
+        <div class="exos">
+            <a class="exo" href="../01-exe.php">
+                <span class="num">01</span>
+                <strong>Première classe</strong>
+                <small>Une Chanson avec des propriétés publiques</small>
+            </a>
+            <a class="exo" href="../01.1-chat/index.php">
+                <span class="num">1.1 → 1.4</span>
+                <strong>🐱 Le chaton</strong>
+                <small>Méthode, $this et constructeur</small>
+            </a>
+            <a class="exo" href="../01.5-chat/index.php">
+                <span class="num">1.5 → 1.7</span>
+                <strong>🔒 Getters et setters</strong>
+                <small>Propriétés privées protégées</small>
+            </a>
+            <a class="exo" href="../01.8-tamagotchi/index.php">
+                <span class="num">1.8</span>
+                <strong>🐣 Mini-Tamagotchi</strong>
+                <small>Une faim qui monte et qui descend</small>
+            </a>
+            <a class="exo" href="../01.9-de/index.php">
+                <span class="num">1.9</span>
+                <strong>🎲 Le dé parlant</strong>
+                <small>static, readonly et __toString()</small>
+            </a>
+            <a class="exo" href="../01-bonus/index.php">
+                <span class="num">Bonus</span>
+                <strong>🎵 La playlist</strong>
+                <small>Des objets rangés dans un objet</small>
+            </a>
+            <a class="exo star" href="../01-vrai-tamagotchi/index.php">
+                <span class="num">Projet</span>
+                <strong>⭐ Le vrai Tamagotchi</strong>
+                <small>Boutique, quêtes, succès et sauvegarde</small>
+            </a>
+        </div>
+
+        <p class="chapitre">Chapitre 2 · L'héritage</p>
+        <div class="exos">
+            <a class="exo" href="../02.1-code-en-double/index.php">
+                <span class="num">2.1</span>
+                <strong>🐾 Le code en double</strong>
+                <small>Le problème que l'héritage règle</small>
+            </a>
+            <a class="exo" href="../02-heritage/index.php">
+                <span class="num">2.2 → 2.8</span>
+                <strong>👨‍👦 La ménagerie</strong>
+                <small>extends, parent::, abstract, polymorphisme</small>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="conteneur">
+        BADR · Classe 1 · PHP orienté objet 2026
+    </div>
+</footer>
+
+<script>
+    // Petite démo : chaque clic "fabrique" un nouvel objet Chat
+    const noms = ['Félix', 'Michmich', 'Mimiche', 'Garfield', 'Tom', 'Simba', 'Nala', 'Pixel'];
+    const liste = document.getElementById('liste-objets');
+    const aucun = document.getElementById('aucun');
+    let compteur = 0;
+
+    document.getElementById('bouton-new').addEventListener('click', () => {
+        compteur++;
+        const nom = noms[Math.floor(Math.random() * noms.length)];
+        const age = Math.floor(Math.random() * 15) + 1;
+
+        const carte = document.createElement('div');
+        carte.className = 'objet';
+        carte.innerHTML = '<b>$chat' + compteur + '</b><br>nom: "' + nom + '"<br>age: ' + age;
+        carte.title = 'Miaou, je suis ' + nom + ' !';
+
+        liste.appendChild(carte);
+        aucun.style.display = 'none';
+    });
+</script>
+</body>
+</html>

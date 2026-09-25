@@ -1,0 +1,169 @@
+/* Style commun à tous les exercices de BADR */
+
+:root {
+    --fond: #f4f1ec;
+    --carte: #ffffff;
+    --texte: #2b2733;
+    --doux: #6f6a78;
+    --accent: #6c4ce0;
+    --accent-clair: #ece6ff;
+    --bord: #e4dfd6;
+    --code: #1f1b2e;
+    --code-texte: #e9e4ff;
+    --ok: #1f9d6b;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fond: #16141c;
+        --carte: #211e2a;
+        --texte: #ece9f2;
+        --doux: #a29cb0;
+        --accent: #a58bff;
+        --accent-clair: #2d2640;
+        --bord: #332e3f;
+        --code: #0f0d15;
+        --code-texte: #d9d2ff;
+        --ok: #4fd1a0;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--fond);
+    color: var(--texte);
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    line-height: 1.6;
+    padding: 40px 16px;
+}
+
+main {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* ---------- En-tête ---------- */
+
+.retour {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--doux);
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.retour:hover {
+    color: var(--accent);
+}
+
+.badge {
+    display: inline-block;
+    background: var(--accent-clair);
+    color: var(--accent);
+    font-size: 0.75em;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 12px 0 4px;
+    line-height: 1.2;
+}
+
+.sous-titre {
+    color: var(--doux);
+    margin: 0 0 28px;
+}
+
+h2 {
+    font-size: 1.1em;
+    margin: 0 0 12px;
+}
+
+/* ---------- Cartes ---------- */
+
+.carte {
+    background: var(--carte);
+    border: 1px solid var(--bord);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Zone où s'affiche le résultat du PHP */
+.resultat {
+    background: var(--code);
+    color: var(--code-texte);
+    font-family: Consolas, "Cascadia Code", monospace;
+    font-size: 0.95em;
+    border-radius: 10px;
+    padding: 16px 20px;
+    overflow-x: auto;
+}
+
+.resultat pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.total {
+    margin: 16px 0 0;
+    font-weight: 700;
+    color: var(--ok);
+}
+
+.note {
+    color: var(--doux);
+    font-size: 0.9em;
+    margin: 12px 0 0;
+}
+
+/* ---------- Page d'accueil ---------- */
+
+.chapitre {
+    margin: 32px 0 12px;
+    color: var(--doux);
+    font-size: 0.85em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.liste {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.liste a {
+    display: block;
+    background: var(--carte);
+    border: 1px solid var(--bord);
+    border-radius: 12px;
+    padding: 16px 18px;
+    color: var(--texte);
+    text-decoration: none;
+    transition: transform 0.15s, border-color 0.15s;
+}
+
+.liste a:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+.liste .num {
+    display: block;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.85em;
+}
