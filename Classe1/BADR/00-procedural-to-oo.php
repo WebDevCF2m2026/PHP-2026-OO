@@ -28,7 +28,7 @@ Orienté objet
 
 
 */
-echo ("</br>");
+echo "<br>";
 
 class User
 {
@@ -52,11 +52,11 @@ class User
         echo $this->name . ' (' . $this->email . ')';
     }
 }
-echo ("</br>");
+echo "<br>";
 // instanciation d'un objet de type User
 $user = new User('Aline', 'aline@example.com');
 $user2 = new User('Alin', 'aline@example.com');
 $user->afficher();
-echo ("</br>");
+echo "<br>";
 
 $user2->afficher();

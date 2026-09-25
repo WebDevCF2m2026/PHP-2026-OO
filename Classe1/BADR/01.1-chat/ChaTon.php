@@ -5,6 +5,7 @@ class ChaTon {
     public string $couleur;
     public int $age;
 
+    // Initialise un chaton à sa création (new ChaTon(...))
     public function __construct(string $nom, string $couleur, int $age) {
         $this->nom = $nom;
         $this->couleur = $couleur;

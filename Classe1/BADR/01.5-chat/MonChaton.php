@@ -1,11 +1,10 @@
-
 <?php
 
 // Classe représentant un chaton avec ses caractéristiques de base
 class MonChaton {
-    public string $nom;
-    public string $couleur;
-    public int $age;
+    private string $nom;
+    private string $couleur;
+    private int $age;
 
     // Initialise un chaton à sa création (new MonChaton(...))
     public function __construct(string $nom, string $couleur, int $age) {

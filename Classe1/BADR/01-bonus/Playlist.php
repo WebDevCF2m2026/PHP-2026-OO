@@ -11,7 +11,7 @@ class Playlist {
     // Affiche toutes les chansons avec leur durée formatée
     public function afficher(): void {
         foreach ($this->chansons as $chanson) {
-            echo $chanson->titre . ' — ' . $chanson->artiste . ' (' . $this->formaterDuree($chanson->duree) . ')' . PHP_EOL;
+            echo $chanson->titre . ' — ' . $chanson->artiste . ' (' . $this->formaterDuree($chanson->duree) . ')' . '<br>';
         }
     }
 

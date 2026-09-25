@@ -1,5 +1,5 @@
 <?php
-require_once 'chanson.php';
+require_once 'Chanson.php';
 require_once 'Playlist.php';
 
 $playlist = new Playlist();
@@ -12,7 +12,6 @@ $playlist->ajouter(new Chanson('Redbone', 'Childish Gambino', 327));
 <head>
     <meta charset="UTF-8">
     <title>Playlist</title>
-    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <main>
