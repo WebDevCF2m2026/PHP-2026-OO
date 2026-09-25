@@ -1,6 +1,8 @@
 <?php
 // le nom du fichier doit être le nom de la classe
 // il n'y a qu'une classe par fichier
+
+
 class Chanson{
     
     // Propriétés 
@@ -22,16 +24,15 @@ class Chanson{
      {
         // on remplit nos propriétés privée, on peut le faire car on est
         // à l'intérieur de la classe, $this représente l'instance
-        // donc l'objet créé via new Chanson(...)
         $this->titre = $title;
         $this->artiste = $artist;
         $this->duree = $time;
+      //   echo self::GENRE;
 
      }
 
      // pour récupérer des propriétées privées, on doit créer
-     // des getters qui récupèrent les propriétés de l'instance 
-     // == objet avec le mot clef $this->
+     // des getters, ce sont des fonction
      public function getTitre():string
      {
         return $this->titre;

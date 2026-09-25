@@ -13,16 +13,10 @@ var_dump($chanson1);
 */
 
 // affichage d'une constante de classe
-echo "Constant de classe Chanson::GENRE : ". Chanson::GENRE."<br><br>";
+echo "Constant de classe Chanson::GENRE : ". Chanson::GENRE."<br>";
 
-// création d'une instance  de Chanson (objet de type Chanson)
+// création d'une instance de Chanson
 $morceau = new Chanson('Thriller','Michael Jackson',202);
-
-$morceau2 = new Chanson(
-   title: 'Get Lucky',
-   artist: 'Daft Punk',
-   time: 240
-);
 
 // ne fonctionne pas car private ou protected
 // echo $morceau->titre;
@@ -30,10 +24,6 @@ $morceau2 = new Chanson(
 // utilisation des getters, on utilise la concaténation OO "{$obj->methode()}"
 
 echo "{$morceau->getTitre()} — {$morceau->getArtiste()} ({$morceau->getDuree()} secondes) <br>";
-
-// affichage du morceau2, concaténation avec le .
-echo $morceau2->getTitre(). ' — ' .$morceau2->getArtiste(). ' ('.
-    $morceau->getDuree().' secondes) <br>';
 
 /*
 // plus possible car le constucteur veut 3 arguments
@@ -56,21 +46,18 @@ $chanson1 = new Chanson();
 
 // test de l'exercice
 
-echo "<h2>2. Programme de test :</h2>";
+echo "<h2>2. Programme de test :<h2>";
 
 $playlist = new Playlist();
-$song = new Chanson('Bohemian Rhapsody', 'Queen', 355);
-$playlist->ajouter($song);
+$playlist->ajouter(new Chanson('Bohemian Rhapsody', 'Queen', 355));
 $playlist->ajouter(new Chanson('Get Lucky', 'Daft Punk', 248));
 $playlist->ajouter(new Chanson('Redbone', 'Childish Gambino', 327));
-//$playlist->ajouter(new Chanson('Beat it', 'Michael Jackson', 27));
 
 // on voit que ajouter() fonctionne
-// var_dump($playlist);
+var_dump($playlist);
 
 $playlist->afficher();
-echo "Durée en secondes: {$playlist->dureeTotale()} <br>";
-echo 'Durée totale : ' . $playlist->formaterDuree($playlist->dureeTotale()) . "<hr>";
+echo 'Durée totale : ' . $playlist->formaterDuree($playlist->dureeTotale()) . PHP_EOL;
 
 ?><h2>Résultat attendu :</h2>
 <p>Bohemian Rhapsody — Queen (05:55)<br>
