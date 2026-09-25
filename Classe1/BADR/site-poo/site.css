@@ -1,0 +1,383 @@
+/* Site : c'est quoi l'orienté objet ? */
+
+:root {
+    --fond: #0f0d17;
+    --fond-2: #181524;
+    --carte: #1f1b2e;
+    --bord: #2e2842;
+    --texte: #ece9f7;
+    --doux: #a39cba;
+    --violet: #a58bff;
+    --rose: #ff7eb6;
+    --vert: #4fd1a0;
+    --jaune: #ffd369;
+    --code: #120f1c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--fond);
+    color: var(--texte);
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    line-height: 1.65;
+}
+
+a {
+    color: var(--violet);
+}
+
+.conteneur {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* ---------- Barre du haut ---------- */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(15, 13, 23, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--bord);
+}
+
+nav .conteneur {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    height: 60px;
+}
+
+.logo {
+    font-weight: 800;
+    color: var(--texte);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--violet);
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul a {
+    color: var(--doux);
+    text-decoration: none;
+    font-size: 0.95em;
+}
+
+nav ul a:hover {
+    color: var(--texte);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+    padding: 90px 0 70px;
+    background:
+        radial-gradient(600px 300px at 15% 20%, rgba(165, 139, 255, 0.25), transparent),
+        radial-gradient(500px 300px at 85% 60%, rgba(255, 126, 182, 0.18), transparent);
+}
+
+.hero .etiquette {
+    display: inline-block;
+    border: 1px solid var(--bord);
+    background: var(--fond-2);
+    color: var(--doux);
+    font-size: 0.85em;
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+.hero h1 {
+    font-size: clamp(2.2em, 6vw, 3.8em);
+    line-height: 1.1;
+    margin: 18px 0;
+}
+
+.degrade {
+    background: linear-gradient(90deg, var(--violet), var(--rose));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: var(--doux);
+    font-size: 1.15em;
+    max-width: 620px;
+}
+
+.boutons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.bouton {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.15s;
+}
+
+.bouton:hover {
+    transform: translateY(-2px);
+}
+
+.bouton.plein {
+    background: var(--violet);
+    color: #140f24;
+}
+
+.bouton.vide {
+    border: 1px solid var(--bord);
+    color: var(--texte);
+}
+
+/* ---------- Sections ---------- */
+
+section {
+    padding: 70px 0;
+}
+
+section.alt {
+    background: var(--fond-2);
+}
+
+h2 {
+    font-size: 2em;
+    margin: 0 0 8px;
+}
+
+.intro {
+    color: var(--doux);
+    max-width: 680px;
+    margin: 0 0 36px;
+}
+
+/* ---------- Démo : la fabrique ---------- */
+
+.fabrique {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.moule,
+.objets {
+    background: var(--carte);
+    border: 1px solid var(--bord);
+    border-radius: 18px;
+    padding: 24px;
+}
+
+.moule h3,
+.objets h3 {
+    margin: 0 0 12px;
+}
+
+.objets .vide {
+    color: var(--doux);
+}
+
+.liste-objets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.objet {
+    background: var(--code);
+    border: 1px solid var(--bord);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-family: Consolas, monospace;
+    font-size: 0.85em;
+    animation: apparition 0.35s ease-out;
+}
+
+.objet b {
+    color: var(--rose);
+}
+
+@keyframes apparition {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+button {
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    background: var(--violet);
+    color: #140f24;
+    margin-top: 16px;
+}
+
+button:hover {
+    filter: brightness(1.1);
+}
+
+/* ---------- Code ---------- */
+
+pre {
+    background: var(--code);
+    border: 1px solid var(--bord);
+    border-radius: 12px;
+    padding: 16px 18px;
+    overflow-x: auto;
+    font-family: Consolas, "Cascadia Code", monospace;
+    font-size: 0.88em;
+    margin: 0;
+}
+
+.mot { color: var(--rose); }
+.nom { color: var(--jaune); }
+.var { color: var(--violet); }
+.txt { color: var(--vert); }
+.com { color: #6f6889; }
+
+/* ---------- Notions ---------- */
+
+.notions {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+}
+
+.notion {
+    background: var(--carte);
+    border: 1px solid var(--bord);
+    border-radius: 18px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.notion h3 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notion p {
+    margin: 0;
+    color: var(--doux);
+}
+
+.icone {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--fond-2);
+    font-size: 1.2em;
+}
+
+/* ---------- Exercices ---------- */
+
+.chapitre {
+    margin: 40px 0 14px;
+    color: var(--doux);
+    font-size: 0.85em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.chapitre:first-of-type {
+    margin-top: 0;
+}
+
+.exos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 14px;
+}
+
+.exo {
+    display: block;
+    background: var(--carte);
+    border: 1px solid var(--bord);
+    border-radius: 16px;
+    padding: 18px;
+    color: var(--texte);
+    text-decoration: none;
+    transition: transform 0.15s, border-color 0.15s;
+}
+
+.exo:hover {
+    transform: translateY(-3px);
+    border-color: var(--violet);
+}
+
+.exo .num {
+    color: var(--violet);
+    font-weight: 700;
+    font-size: 0.85em;
+}
+
+.exo strong {
+    display: block;
+    margin: 4px 0;
+    font-size: 1.1em;
+}
+
+.exo small {
+    color: var(--doux);
+}
+
+.exo.star {
+    background: linear-gradient(135deg, rgba(165, 139, 255, 0.18), rgba(255, 126, 182, 0.14));
+}
+
+footer {
+    border-top: 1px solid var(--bord);
+    padding: 30px 0;
+    color: var(--doux);
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* ---------- Téléphone ---------- */
+
+@media (max-width: 720px) {
+    nav ul {
+        display: none;
+    }
+
+    .fabrique {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+}
